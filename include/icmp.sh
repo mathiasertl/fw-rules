@@ -4,10 +4,10 @@ icmp4() {
 	rule4 --new-chain ICMP
 
 	# accept only ECHO und DESTINATION/NETWORK/HOST UNREACHABLE
-	rule4 -A icmp -p ICMP --icmp-type echo-reply -j ACCEPT
-	rule4 -A icmp -p ICMP --icmp-type echo-request -j ACCEPT
-	rule4 -A icmp -p ICMP --icmp-type destination-unreachable -j ACCEPT
-	rule4 -A icmp -j DROP
+	rule4 -A ICMP -p icmp --icmp-type echo-reply -j ACCEPT
+	rule4 -A ICMP -p icmp --icmp-type echo-request -j ACCEPT
+	rule4 -A ICMP -p icmp --icmp-type destination-unreachable -j ACCEPT
+	rule4 -A ICMP -j DROP
 
 	# insert chain:
 	rule4 -I INPUT -p icmp -j ICMP
