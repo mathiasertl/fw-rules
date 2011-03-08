@@ -1,0 +1,4 @@
+# Accept some stuff from everywhere
+#rule -A INPUT -p tcp --dport 80 -j ACCEPT
+#rule -A INPUT -p tcp --dport 222 -j ACCEPT
+#rule -A INPUT -p tcp --dport 443 -j ACCEPT
