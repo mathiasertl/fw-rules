@@ -1,8 +1,7 @@
 #!/bin/sh
 
 INCLUDEDIR='include/'
-ETCDIR='.'
-CONFDIR='.'
+CONFDIR='/etc/iptables-fsinf'
 CONFINCLUDEDIR="$CONFDIR/conf.d"
 INITDIR="$CONFDIR/init.d"
 
