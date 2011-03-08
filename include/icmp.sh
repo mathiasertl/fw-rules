@@ -1,18 +1,16 @@
 # handle icmp connections
 icmp4() {
 	echo '# set up ICMPv4 chain'
-	rule4 --new-chain icmp
+	rule4 --new-chain ICMP
 
 	# accept only ECHO und DESTINATION/NETWORK/HOST UNREACHABLE
-	rule4 -A icmp -p icmp --icmp-type echo-reply -j ACCEPT
-	rule4 -A icmp -p icmp --icmp-type echo-request -j ACCEPT
-	rule4 -A icmp -p icmp --icmp-type destination-unreachable -j ACCEPT
+	rule4 -A icmp -p ICMP --icmp-type echo-reply -j ACCEPT
+	rule4 -A icmp -p ICMP --icmp-type echo-request -j ACCEPT
+	rule4 -A icmp -p ICMP --icmp-type destination-unreachable -j ACCEPT
 	rule4 -A icmp -j DROP
 
 	# insert chain:
-	rule4 -I INPUT -p icmp -j icmp
-	# at specific position:
-	#rule4 -I INPUT 3 -p icmp -j icmp
+	rule4 -I INPUT -p icmp -j ICMP
 }
 
 icmp6() {
