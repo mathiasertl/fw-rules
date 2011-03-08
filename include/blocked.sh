@@ -1,4 +1,10 @@
 block_hosts() {
+	if [ -z "$BLOCKED_HOSTS" ]; then
+		return
+	fi
+
+	echo "# Block hosts"
+
 	rule --new-chain BLOCKED_IN
 	rule -I INPUT -j BLOCKED_IN
 	rule --new-chain BLOCKED_OUT
