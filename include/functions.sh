@@ -1,43 +1,7 @@
-# cleanup IPv4 (e.g. on error)
-function cleanup4 {
-	iptables -F
-	iptables -X
-}
-
-# cleanup IPv6 (e.g. on error)
-function cleanup6 {
-	ip6tables -F
-	ip6tables -X
-}
-
-# cleanup IPv4 and IPv6 (e.g. on error)
-function cleanup {
-	cleanup4
-	cleanup6
-}
-
-# set initial policies on IPv4
-function init4 {
-	iptables -P INPUT DROP
-	iptables -P FORWARD DROP
-	iptables -P OUTPUT ACCEPT
-}
-
-# set initial policies on IPv6
-function init6 {
-	ip6tables -P INPUT DROP
-	ip6tables -P FORWARD DROP
-	ip6tables -P OUTPUT ACCEPT
-}
-
-# set initial policies on IPv4 and IPv6
-function init {
-	init4
-	init6
-}
-
 # Accept all connections in case of an error
-function reset {
+reset() {
+	echo "Reset chains to safe default state!"
+	set -x
 	iptables -P INPUT ACCEPT
 	iptables -P OUTPUT ACCEPT
 	iptables -P FORWARD DROP
@@ -52,8 +16,11 @@ function reset {
 }
 
 # a rule just for IPv4
-function rule4 {
-	iptables ${@}
+rule4() {
+	if [ "$ENABLE_V4" != 'n' ]; then
+		echo iptables ${@}
+	fi
+
 	if [ "${?}" -ne 0 ]; then
 		reset
 		exit 1
@@ -61,8 +28,11 @@ function rule4 {
 }
 
 # a rule just for IPv6
-function rule6 {
-	iptables ${@}
+rule6() {
+	if [ "$ENABLE_V6" != 'n' ]; then
+		echo ip6tables ${@}
+	fi
+
 	if [ "${?}" -ne 0 ]; then
 		reset
 		exit 1
@@ -70,7 +40,64 @@ function rule6 {
 }
 
 # create a rule for IPv4 and IPv6
-function rule {
+rule() {
 	rule4 ${@}
 	rule6 ${@}
 }
+
+# cleanup IPv4 (e.g. on error)
+cleanup4() {
+	echo '# cleanup IPv4'
+	rule4 -F
+	rule4 -X
+}
+
+# cleanup IPv6 (e.g. on error)
+cleanup6() {
+	echo '# cleanup IPv6'
+	rule6 -F
+	rule6 -X
+}
+
+# cleanup IPv4 and IPv6 (e.g. on error)
+cleanup() {
+	cleanup4
+	cleanup6
+}
+
+# set initial policies on IPv4
+init4() {
+	cleanup4
+
+	echo '# Initialize IPv4'
+	rule4 -P INPUT DROP
+	rule4 -P FORWARD DROP
+	rule4 -P OUTPUT ACCEPT
+
+	# accept established connections right away:
+	rule4 -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+	# accept anything from local
+	rule4 -A INPUT -s 127.0.0.1 -i lo -j ACCEPT
+}
+
+# set initial policies on IPv6
+init6() {
+	cleanup6
+
+	echo '# initialize IPv6'
+	rule6 -P INPUT DROP
+	rule6 -P FORWARD DROP
+	rule6 -P OUTPUT ACCEPT
+	
+	# accept established connections right away:
+	rule6 -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+	# accept anything from local
+	rule6 -A INPUT -s 127.0.0.1 -i lo -j ACCEPT
+}
+
+# set initial policies on IPv4 and IPv6
+init() {
+	init4
+	init6
+}
+
