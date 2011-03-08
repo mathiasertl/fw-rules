@@ -43,7 +43,17 @@ counter_create() {
 	fi
 }
 
-count_ports() {
+count_traffic4() {
+	echo "# Initialize traffic counters for IPv4"
 	counter_create 'rule4'
+}
+
+count_traffic6() {
+	echo "# Initialize traffic counters for IPv6"
 	counter_create 'rule6'
+}
+
+count_traffic() {
+	count_traffic4
+	count_traffic6
 }
