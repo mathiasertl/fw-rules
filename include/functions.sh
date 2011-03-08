@@ -19,6 +19,7 @@ reset() {
 rule4() {
 	if [ "$ENABLE_V4" != 'n' ]; then
 		echo iptables ${@}
+		iptables ${@}
 	fi
 
 	if [ "${?}" -ne 0 ]; then
@@ -31,6 +32,7 @@ rule4() {
 rule6() {
 	if [ "$ENABLE_V6" != 'n' ]; then
 		echo ip6tables ${@}
+		ip6tables ${@}
 	fi
 
 	if [ "${?}" -ne 0 ]; then
@@ -43,6 +45,31 @@ rule6() {
 rule() {
 	rule4 ${@}
 	rule6 ${@}
+}
+
+# Add a rule for each IP address found in $1. Each rule is constructed by all
+# arguments following $1 appended by the respective host from $1.
+# This function dynamically uses IPv4 or IPv6 depending on the type of address
+# is found. 
+#
+# Note: Remember to always quote $1 so that it is used as list.
+#
+# Example usage:
+#      rule_list "127.0.0.1 ::1" -A INPUT -i lo -j ACCEPT -s
+# will execute:
+#      iptables -A INPUT -i lo -j ACCEPT -s 127.0.0.1
+#      ip6tables -A INPUT -i lo -j ACCEPT -s ::1
+rule_list() {
+	hosts=$1
+	shift
+	for host in $hosts; do
+		echo $host | grep -q ':'
+		if [ $? = 0 ]; then # found a ':' --> ipv6!
+			rule6 $@ $host
+		else
+			rule4 $@ $host
+		fi
+	done
 }
 
 # cleanup IPv4 (e.g. on error)
@@ -92,7 +119,7 @@ init6() {
 	# accept established connections right away:
 	rule6 -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
 	# accept anything from local
-	rule6 -A INPUT -s 127.0.0.1 -i lo -j ACCEPT
+	rule6 -A INPUT -s ::1 -i lo -j ACCEPT
 }
 
 # set initial policies on IPv4 and IPv6
