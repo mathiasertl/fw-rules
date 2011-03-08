@@ -4,24 +4,26 @@ counter_setup() {
 	dir=$3
 	ports=$4
 
+	# construct the name of the chain
 	chain=COUNT_$(echo $proto | tr '[:lower:]' '[:upper:]')_$dir
-
-	# create chain
-	$bin --new-chain $chain
 	
-	# add chain to parent chain:
+	# set vars depending on if this is IN our OUT
 	if [ "$dir" = "IN" ]; then
-		$bin -I INPUT -j $chain
-
-		arg='--dport'
+		ifarg='-i'
+		portarg='--dport'
+		parchain='INPUT'
 	elif [ "$dir" = "OUT" ]; then
-		$bin -I OUTPUT -p $proto -j $chain
-
-		arg='--sport'
+		parchain='OUTPUT'
+		portarg='--sport'
+		ifarg='-o'
 	fi
+	
+	# create and add chain
+	$bin --new-chain $chain 
+	$bin -I $parchain -p $proto -j $chain $ifarg $INTERFACE
 
 	for port in $ports; do
-		$bin -A $chain $arg $port 
+		$bin -A $chain -p $proto $portarg $port 
 	done
 }
 
@@ -53,6 +55,10 @@ count_traffic6() {
 	counter_create 'rule6'
 }
 
+# Count traffic on TCP/UDP, both in- and outgoing. Uses the evnironment
+# variables COUNT_{TCP,UDP}_{IN,OUT} to construct chains with the same name that
+# can be used for traffic counting, e.g. by a watchdog or munin plugin.
+# The chains use the interface set by the environment variable INTERFACE.
 count_traffic() {
 	count_traffic4
 	count_traffic6
