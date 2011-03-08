@@ -17,19 +17,18 @@ icmp4() {
 
 icmp6() {
 	echo '# set up ICMPv6 chain'
-	rule6 --new-chain icmp6
-	rule6 -I INPUT -p icmpv6 --icmpv6-type router-advertisement -j DROP
-	rule6 -A icmp6 -p icmpv6 --icmpv6-type echo-reply -j ACCEPT
-	rule6 -A icmp6 -p icmpv6 --icmpv6-type echo-request -j ACCEPT
-	rule6 -A icmp6 -p icmpv6 --icmpv6-type destination-unreachable -j ACCEPT
-	rule6 -A icmp6 -p icmpv6 --icmpv6-type router-solicitation -j ACCEPT
-	rule6 -A icmp6 -p icmpv6 --icmpv6-type neighbour-advertisement -j ACCEPT
-	rule6 -A icmp6 -p icmpv6 --icmpv6-type neighbour-solicitation -j ACCEPT
-	rule6 -A icmp6 -p icmpv6 --icmpv6-type packet-too-big -j ACCEPT
-	rule6 -A icmp6 -p icmpv6 --icmpv6-type parameter-problem -j ACCEPT
-	rule6 -A icmp6 -j DROP
+	rule6 --new-chain ICMP
+	rule6 -I INPUT -p icmpv6 -j ICMP
+	rule6 -A ICMP -p icmpv6 --icmpv6-type echo-reply -j ACCEPT
+	rule6 -A ICMP -p icmpv6 --icmpv6-type echo-request -j ACCEPT
+	rule6 -A ICMP -p icmpv6 --icmpv6-type destination-unreachable -j ACCEPT
+	rule6 -A ICMP -p icmpv6 --icmpv6-type router-solicitation -j ACCEPT
+	rule6 -A ICMP -p icmpv6 --icmpv6-type neighbour-advertisement -j ACCEPT
+	rule6 -A ICMP -p icmpv6 --icmpv6-type neighbour-solicitation -j ACCEPT
+	rule6 -A ICMP -p icmpv6 --icmpv6-type packet-too-big -j ACCEPT
+	rule6 -A ICMP -p icmpv6 --icmpv6-type parameter-problem -j ACCEPT
+	rule6 -A ICMP -j DROP
 	
-	rule6 -I INPUT -p icmpv6 -j icmp6
 }
 
 icmp() {
