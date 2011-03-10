@@ -1,0 +1,4 @@
+if [ "$TU_INFRASTRUCTURE" = "y" ]; then
+	rule_list "$TUNAMEA $TUNAMEB" -A INPUT_UDP -p udp --sport 53 -j ACCEPT -s
+	rule_list "$TUTIMEA $TUTIMEB $TUTIMEC" -A INPUT_UDP -p udp --dport 123 -j ACCEPT -s
+fi
