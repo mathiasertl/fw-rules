@@ -4,8 +4,16 @@
 
 # General settings
 INTERFACE=eth0
-ENABLE_V6=y
-ENABLE_V4=y
+if [ "$ADDRFAM" = "inet" ]; then
+	ENABLE_V6='n'
+	ENABLE_V4='y'
+elif [ "$ADDRFAM" = "inet6" ]; then
+	ENABLE_V6='y'
+	ENABLE_V4='n'
+else
+	ENABLE_V6='n'
+	ENABLE_V4='n'
+fi
 
 # traffic counters
 COUNT_TCP=""
