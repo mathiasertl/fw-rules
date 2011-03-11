@@ -1,5 +1,8 @@
 #!/bin/sh
 
+exec_dir=`dirname $(readlink -f $0)`
+cd $exec_dir
+
 INCLUDEDIR='include/'
 CONFDIR='.'
 CONFINCLUDEDIR="$CONFDIR/conf.d"
