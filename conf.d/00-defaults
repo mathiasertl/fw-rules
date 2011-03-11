@@ -17,3 +17,6 @@ COUNT_UDP_OUT="$COUNT_UDP"
 
 # blocked hosts
 BLOCKED_HOSTS=''
+
+# set to 'y' to enable some ifrastructure from inside TU Vienna:
+TU_INFRASTRUCTURE='n'
