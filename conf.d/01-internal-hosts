@@ -7,6 +7,7 @@ FSINF_SUBNETS="${FSINF_SUBNET4} ${FSINF_SUBNET6}"
 STYX="${PREFIX4}10 ${PREFIX6}10" #firewall
 HAUMEA="${PREFIX4}13 ${PREFIX6}13" # apt-server
 QUAOAR="${PREFIX4}14 ${PREFIX6}14" # auth-server
+SOL="${PREFIX4}18 ${PREFIX6}18" # auth-server
 MATAHARI="${PREFIX4}19 ${PREFIX6}19" # vm-server
 MARS="${PREFIX4}20 ${PREFIX6}20" # fsinf-server
 XOVER="${PREFIX4}22 ${PREFIX6}22" # shell-server
@@ -19,3 +20,6 @@ TIGERENTE="${PREFIX4}50 ${PREFIX6}50" # mtb, oe1
 YOGI="${PREFIX4}60 ${PREFIX6}60" # wikileaks
 MAKEMAKE="${PREFIX4}61 ${PREFIX6}61" # minecraft
 OPPOSSUM="${PREFIX4}62 ${PREFIX6}62" # mud
+ERIS="${PREFIX4}63 ${PREFIX6}63" # jabber.at
+
+MANNI="128.131.167.246" # backup-server
