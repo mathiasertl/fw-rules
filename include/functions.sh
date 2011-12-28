@@ -19,7 +19,9 @@ reset() {
 rule4() {
 	if [ "$ENABLE_V4" != 'n' ]; then
 		echo iptables ${@}
-		iptables ${@}
+		if [ "$DRYRUN" = 'n' ]; then
+			iptables ${@}
+		fi
 	fi
 
 	if [ "${?}" -ne 0 ]; then
@@ -32,7 +34,9 @@ rule4() {
 rule6() {
 	if [ "$ENABLE_V6" != 'n' ]; then
 		echo ip6tables ${@}
-		ip6tables ${@}
+		if [ "$DRYRUN" = 'n' ]; then
+			ip6tables ${@}
+		fi
 	fi
 
 	if [ "${?}" -ne 0 ]; then
