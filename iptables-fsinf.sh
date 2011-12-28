@@ -3,8 +3,8 @@
 exec_dir=`dirname $(readlink -f $0)`
 cd $exec_dir
 
-INCLUDEDIR='include/'
-CONFDIR='.'
+[ -z $INCLUDEDIR ] && INCLUDEDIR='include/'
+[ -z $CONFDIR ] && CONFDIR='.'
 CONFINCLUDEDIR="$CONFDIR/conf.d"
 INITDIR="$CONFDIR/init.d"
 
