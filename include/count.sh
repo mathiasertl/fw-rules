@@ -20,7 +20,7 @@ counter_setup() {
 	
 	# create and add chain
 	$bin --new-chain $chain 
-	$bin -I $parchain -p $proto -j $chain $ifarg $INTERFACE
+	$bin -I $parchain -p $proto -j $chain $ifarg $IFACE
 
 	for port in $ports; do
 		$bin -A $chain -p $proto $portarg $port 
