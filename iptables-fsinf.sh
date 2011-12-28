@@ -3,10 +3,11 @@
 exec_dir=`dirname $(readlink -f $0)`
 cd $exec_dir
 
+[ -z $DRYRUN ] && DRYRUN='n'
 [ -z $INCLUDEDIR ] && INCLUDEDIR='include/'
-[ -z $CONFDIR ] && CONFDIR='.'
-CONFINCLUDEDIR="$CONFDIR/conf.d"
-INITDIR="$CONFDIR/init.d"
+[ -z $BASEDIR ] && BASEDIR='.'
+CONFDIR="$BASEDIR/conf.d"
+INITDIR="$BASEDIR/init.d"
 
 # include functions
 for file in $(find $INCLUDEDIR -type f -or -type l | sort | grep '.sh$')
@@ -14,7 +15,7 @@ do
 	. $file
 done
 
-for file in $(find $CONFINCLUDEDIR -type f -or -type l | sort | grep '/[0-9][0-9]')
+for file in $(find $CONFDIR -type f -or -type l | sort | grep '/[0-9][0-9]')
 do
 	. $file
 done
