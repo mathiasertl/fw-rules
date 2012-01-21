@@ -2,5 +2,7 @@
 
 set -e
 if [ "$1" = purge ]; then
-	update-rc.d package remove
+	update-rc.d iptables-fsinf remove
 fi
+
+#DEBHELPER#
