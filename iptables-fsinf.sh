@@ -26,8 +26,10 @@ init
 # execute additional rules the system has in $INITDIR
 echo
 echo "# Add rules found in $INITDIR"
-for file in $(find $INITDIR -type f -or -type l | sort | grep '/[0-9][0-9]')
+#for file in $(find $INITDIR -type f -or -type l | sort | grep '/[0-9][0-9]')
+for file in $(find $INITDIR -regex $INITDIR'/[0-9][0-9].*' -and '(' -type f -or -type l ')' | sort)
 do
+	echo $file
 	. $file
 done
 echo "# Finished adding rules found in $INITDIR"
@@ -42,6 +44,8 @@ icmp
 # block some hosts:
 block_hosts
 
-# count traffic
+# count traffic:
 count_traffic
 
+# add global ports:
+global_ports
