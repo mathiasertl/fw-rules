@@ -15,7 +15,6 @@ reset6() {
 	ip6tables -X
 }
 reset() {
-	echo "Reset chains to safe default state!"
 	reset4
 	reset6
 }
@@ -27,6 +26,7 @@ rule4() {
 		if [ "$DRYRUN" = 'n' ]; then
 			iptables ${@}
 			if [ "${?}" -ne 0 ]; then
+				echo "FAILED SETTING UP IPv4 FIREWALL. RESETTING TO SAFE DEFAULT STATE."
 				reset4
 				ENABLE_IPV4='n'
 			fi
@@ -42,6 +42,7 @@ rule6() {
 		if [ "$DRYRUN" = 'n' ]; then
 			ip6tables ${@}
 			if [ "${?}" -ne 0 ]; then
+				echo "FAILED SETTING UP IPv6 FIREWALL. RESETTING TO SAFE DEFAULT STATE."
 				reset6
 				ENABLE_IPV6='n'
 			fi
