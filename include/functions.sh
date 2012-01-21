@@ -16,8 +16,8 @@ reset6() {
 }
 reset() {
 	echo "Reset chains to safe default state!"
-	reset4()
-	reset6()
+	reset4
+	reset6
 }
 
 # a rule just for IPv4
