@@ -2,10 +2,6 @@
 # additional files in the same directory and suffix them with a higher integer
 # and update the settings there.
 
-# General settings
-ENABLE_V6='y'
-ENABLE_V4='y'
-
 # traffic counters
 COUNT_TCP=""
 COUNT_UDP=""
