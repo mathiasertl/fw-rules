@@ -9,18 +9,16 @@ counter_setup() {
 	
 	# set vars depending on if this is IN our OUT
 	if [ "$dir" = "IN" ]; then
-		ifarg='-i'
 		portarg='--dport'
 		parchain='INPUT'
 	elif [ "$dir" = "OUT" ]; then
 		parchain='OUTPUT'
 		portarg='--sport'
-		ifarg='-o'
 	fi
 	
 	# create and add chain
 	$bin --new-chain $chain 
-	$bin -I $parchain -p $proto -j $chain $ifarg $IFACE
+	$bin -I $parchain -p $proto -j $chain
 
 	for port in $ports; do
 		$bin -A $chain -p $proto $portarg $port 
