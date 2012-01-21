@@ -1,5 +1,8 @@
 # handle icmp connections
 icmp4() {
+	if [ "$ENABLE_V4" = 'n' ]; then
+		return
+	fi
 	echo '# set up ICMPv4 chain'
 	rule4 --new-chain ICMP
 
@@ -14,6 +17,9 @@ icmp4() {
 }
 
 icmp6() {
+	if [ "$ENABLE_V6" = 'n' ]; then
+		return
+	fi
 	echo '# set up ICMPv6 chain'
 	rule6 --new-chain ICMP
 	rule6 -I INPUT -p icmpv6 -j ICMP
