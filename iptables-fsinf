@@ -1,8 +1,8 @@
 #!/bin/sh
 ### BEGIN INIT INFO
-# Provides:          iptables
-# Required-Start:    $local_fs
-# Required-Stop:     $local_fs
+# Provides:          iptables-fsinf
+# Required-Start:    $remote_fs
+# Required-Stop:     $remote_fs
 # X-Start-Before:    $network
 # X-Stop-Before:     $network
 # Default-Start:     2 3 4 5
