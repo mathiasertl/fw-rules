@@ -82,6 +82,9 @@ rule_list() {
 
 # cleanup IPv4 (e.g. on error)
 cleanup4() {
+	if [ "$ENABLE_V4" = 'n' ]; then
+		return
+	fi
 	echo '# cleanup IPv4'
 	rule4 -F
 	rule4 -X
@@ -89,6 +92,9 @@ cleanup4() {
 
 # cleanup IPv6 (e.g. on error)
 cleanup6() {
+	if [ "$ENABLE_V6" = 'n' ]; then
+		return
+	fi
 	echo '# cleanup IPv6'
 	rule6 -F
 	rule6 -X
@@ -102,6 +108,9 @@ cleanup() {
 
 # set initial policies on IPv4
 init4() {
+	if [ "$ENABLE_V4" = 'n' ]; then
+		return
+	fi
 	cleanup4
 
 	echo '# Initialize IPv4'
@@ -117,6 +126,9 @@ init4() {
 
 # set initial policies on IPv6
 init6() {
+	if [ "$ENABLE_V6" = 'n' ]; then
+		return
+	fi
 	cleanup6
 
 	echo '# initialize IPv6'
