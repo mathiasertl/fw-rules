@@ -1,0 +1,5 @@
+iptables-fsinf (2012-01-21-1) oneiric; urgency=low
+
+  * Initial version
+
+ -- Mathias Ertl <apt-repository@fsinf.at>  Sat, 21 Jan 2012 23:19:21 +0000

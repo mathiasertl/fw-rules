@@ -1,0 +1,15 @@
+Source: iptables-fsinf
+Section: net
+Priority: optional
+Maintainer: Mathias Ertl <apt-repository@fsinf.at>
+Standards-Version: 3.9.2
+Build-Depends: debhelper (>= 7)
+Vcs-Browser: http://git.fsinf.at/fsinf/fw-rules
+Vcs-Git: http://git.fsinf.at/fsinf/fw-rules.git
+
+Package: iptables-fsinf
+Architecture: all
+Depends: ${misc:Depends}
+Description: Script to handle iptables rules
+ This script is used to handle iptables rules and provides confortable handling
+ of IPv4 and IPv6 rulesets.
