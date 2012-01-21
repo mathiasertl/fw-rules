@@ -1,18 +1,23 @@
 # Accept all connections in case of an error
-reset() {
-	echo "Reset chains to safe default state!"
-	set -x
+reset4() {
 	iptables -P INPUT ACCEPT
 	iptables -P OUTPUT ACCEPT
 	iptables -P FORWARD DROP
 	iptables -F
 	iptables -X
-	
+}
+
+reset6() {
 	ip6tables -P INPUT ACCEPT
 	ip6tables -P OUTPUT ACCEPT
 	ip6tables -P FORWARD DROP
 	ip6tables -F
 	ip6tables -X
+}
+reset() {
+	echo "Reset chains to safe default state!"
+	reset4()
+	reset6()
 }
 
 # a rule just for IPv4
@@ -21,13 +26,13 @@ rule4() {
 		echo iptables ${@}
 		if [ "$DRYRUN" = 'n' ]; then
 			iptables ${@}
+			if [ "${?}" -ne 0 ]; then
+				reset4
+				ENABLE_IPV4='n'
+			fi
 		fi
 	fi
 
-	if [ "${?}" -ne 0 ]; then
-		reset
-		exit 1
-	fi
 }
 
 # a rule just for IPv6
@@ -36,12 +41,11 @@ rule6() {
 		echo ip6tables ${@}
 		if [ "$DRYRUN" = 'n' ]; then
 			ip6tables ${@}
+			if [ "${?}" -ne 0 ]; then
+				reset6
+				ENABLE_IPV6='n'
+			fi
 		fi
-	fi
-
-	if [ "${?}" -ne 0 ]; then
-		reset
-		exit 1
 	fi
 }
 
