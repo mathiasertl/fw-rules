@@ -1,8 +1,8 @@
 #!/bin/sh
 ### BEGIN INIT INFO
 # Provides:          iptables-fsinf
-# Required-Start:    $remote_fs
-# Required-Stop:     $remote_fs
+# Required-Start:    $local_fs
+# Required-Stop:     $local_fs
 # X-Start-Before:    $network
 # X-Stop-Before:     $network
 # Default-Start:     2 3 4 5
@@ -18,10 +18,9 @@ cd $exec_dir
 
 # base directories:
 [ -z $CONFBASEDIR ]  && CONFBASEDIR='/etc/iptables-fsinf'
-[ -z $SHAREDIR ]     && SHAREDIR='/usr/share/iptables-fsinf'
 
 # important directories:
-[ -z $INCLUDEDIR ]   && INCLUDEDIR="$SHAREDIR/include/"
+[ -z $INCLUDEDIR ]   && INCLUDEDIR="$CONFBASEDIR/include/"
 [ -z $CONFDIR ]      && CONFDIR="$CONFBASEDIR/conf.d"
 [ -z $INITDIR ]      && INITDIR="$CONFBASEDIR/init.d"
 
