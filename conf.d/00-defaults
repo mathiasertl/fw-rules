@@ -3,14 +3,8 @@
 # and update the settings there.
 
 # General settings
-ENABLE_V6='n'
-ENABLE_V4='n'
-
-if [ "$ADDRFAM" = "inet" ]; then
-	ENABLE_V4='y'
-elif [ "$ADDRFAM" = "inet6" ]; then
-	ENABLE_V6='y'
-fi
+ENABLE_V6='y'
+ENABLE_V4='y'
 
 # traffic counters
 COUNT_TCP=""
