@@ -17,8 +17,8 @@ cd $exec_dir
 [ -z $DRYRUN ]       && DRYRUN='n'
 
 # base directories:
-[ -z $CONFBASEDIR ]  && CONFBASEDIR='/etc/fw-rules'
-[ -z $SHAREDIR ]     && SHAREDIR='/usr/share/fw-rules'
+[ -z $CONFBASEDIR ]  && CONFBASEDIR='/etc/iptables-fsinf'
+[ -z $SHAREDIR ]     && SHAREDIR='/usr/share/iptables-fsinf'
 
 # important directories:
 [ -z $INCLUDEDIR ]   && INCLUDEDIR="$SHAREDIR/include/"
