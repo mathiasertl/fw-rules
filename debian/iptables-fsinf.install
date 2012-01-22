@@ -1,4 +1,2 @@
-conf.d /etc/iptables-fsinf/
-init.d /etc/iptables-fsinf/
 include /etc/iptables-fsinf/
 iptables-fsinf /etc/init.d/

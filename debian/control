@@ -13,3 +13,9 @@ Depends: ${misc:Depends}
 Description: Script to handle iptables rules
  This script is used to handle iptables rules and provides confortable handling
  of IPv4 and IPv6 rulesets.
+
+Package: iptables-fsinf-local
+Architecture: all
+Depends: ${misc:Depends}, iptables-fsinf
+Description: Additional rules for local fsinf installations
+ Contains some config-files that can be used inside the fsinf.
