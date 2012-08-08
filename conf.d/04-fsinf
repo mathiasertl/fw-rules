@@ -1,0 +1,2 @@
+# set to 'y' to enable some infrastructure provided by FSINF:
+FSINF_INFRASTRUCTURE='y'
