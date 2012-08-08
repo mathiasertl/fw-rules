@@ -2,5 +2,5 @@ conf.d/01-internal-hosts /etc/iptables-fsinf/conf.d
 conf.d/02-external-hosts /etc/iptables-fsinf/conf.d
 conf.d/03-tuvienna /etc/iptables-fsinf/conf.d/
 conf.d/04-fsinf /etc/iptables-fsinf/conf.d/
-init.d/98-fsinf-infrastructure /etc/iptables-fsinf/conf.d/
-init.d/99-tuvienna-infrastructure /etc/iptables-fsinf/init.d
+init.d/98-fsinf-infrastructure /etc/iptables-fsinf/init.d/
+init.d/99-tuvienna-infrastructure /etc/iptables-fsinf/init.d/
