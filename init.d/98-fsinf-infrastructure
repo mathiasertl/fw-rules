@@ -1,3 +1,14 @@
+# make defaults settings:
+[ -z ${MUNIN_CONFIG_FILE} ] && MUNIN_CONFIG_FILE=/etc/munin/munin-node.conf
+
 if [ "$FSINF_INFRASTRUCTURE" = "y" ]; then
-	rule6 -A INPUT -p tcp --dport 4949 -j ACCEPT -s $ENCELADUS6
+	# doing munin configuration
+	if [ -f ${MUNIN_CONFIG_FILE} ]; then
+		if [ $(grep -c '^allow ^128\\\.130\\\.95\\\.17\$$' ${MUNIN_CONFIG_FILE}) -eq 1 ]; then
+			rule4 -A INPUT -p tcp --dport 4949 -j ACCEPT -s $ENCELADUS4
+		fi
+		if [ $(grep -c '^allow ^2001:629:3200:95::1:17\$$' ${MUNIN_CONFIG_FILE}) -eq 1 ]; then
+			rule6 -A INPUT -p tcp --dport 4949 -j ACCEPT -s $ENCELADUS6
+		fi
+	fi
 fi
