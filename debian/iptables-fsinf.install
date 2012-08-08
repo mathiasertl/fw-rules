@@ -1,5 +1,2 @@
 include /etc/iptables-fsinf/
 iptables-fsinf /etc/init.d/
-conf.d/03-tuvienna /etc/iptables-fsinf/conf.d/
-conf.d/04-fsinf /etc/iptables-fsinf/conf.d/
-init.d/98-fsinf-infrastructure /etc/iptables-fsinf/conf.d/
