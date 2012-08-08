@@ -32,7 +32,7 @@ SOL="${SOL4} ${SOL6}"
 # MySQL server:
 MIMAS4="${PREFIX4}19"
 MIMAS6="${PREFIX6}19"
-MIMAS="${MIMAS4} ${MIMAS6}
+MIMAS="${MIMAS4} ${MIMAS6}"
 
 # main fsinf-server
 MARS4="${PREFIX4}20"
