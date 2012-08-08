@@ -1,0 +1,2 @@
+# set to 'y' to enable some ifrastructure from inside TU Vienna:
+TU_INFRASTRUCTURE='n'

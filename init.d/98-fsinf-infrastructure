@@ -1,0 +1,3 @@
+if [ "$FSINF_INFRASTRUCTURE" = "y" ]; then
+	rule6 -A INPUT -p tcp --dport 4949 -j ACCEPT -s $ENCELADUS6
+fi

@@ -13,7 +13,5 @@ COUNT_UDP_OUT="$COUNT_UDP"
 # blocked hosts
 BLOCKED_HOSTS=''
 
+# ports available globally
 GLOBAL_PORTS=''
-
-# set to 'y' to enable some ifrastructure from inside TU Vienna:
-TU_INFRASTRUCTURE='n'
