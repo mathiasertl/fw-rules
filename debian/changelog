@@ -1,3 +1,9 @@
+iptables-fsinf (2012-08-11-1) precise; urgency=low
+
+  * fsinf infrastructure: munin always on IPv4
+
+ -- Mathias Ertl <apt-repository@fsinf.at>  Sat, 11 Aug 2012 15:28:35 +0200
+
 iptables-fsinf (2012-08-09-1) precise; urgency=low
 
   * update with fsinf-infrastructure
