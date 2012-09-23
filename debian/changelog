@@ -1,3 +1,9 @@
+iptables-fsinf (2012-09-23-1) precise; urgency=low
+  
+  * Update list of hosts
+
+ -- Mathias Ertl <apt-repository@fsinf.at>  Sun, 23 Sep 2012 20:25:43 +0200
+
 iptables-fsinf (2012-08-11-1) precise; urgency=low
 
   * fsinf infrastructure: munin always on IPv4
