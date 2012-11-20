@@ -1,8 +1,8 @@
-iptables-fsinf (2012-11-20-1) precise; urgency=low
+iptables-fsinf (2012-11-21-1) precise; urgency=low
   
   * Add tethys.htu and dione.htu
 
- -- Mathias Ertl <apt-repository@fsinf.at>  Tue, 20 Nov 2012 21:17:00 +0100
+ -- Mathias Ertl <apt-repository@fsinf.at>  Wed, 21 Nov 2012 00:33:37 +0100
 
 iptables-fsinf (2012-09-23-1) precise; urgency=low
   
