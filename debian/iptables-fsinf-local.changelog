@@ -1,3 +1,11 @@
+iptables-fsinf (2013-01-23-1) precise; urgency=low
+  
+  * Add grace.htu
+  * Remove tigerente.htu
+  * Fix minor typo
+
+ -- Mathias Ertl <apt-repository@fsinf.at>  Wed, 23 Jan 2013 17:03:29 +0100
+
 iptables-fsinf (2012-11-21-1) precise; urgency=low
   
   * Add tethys.htu and dione.htu
