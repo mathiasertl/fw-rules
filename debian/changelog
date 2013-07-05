@@ -1,3 +1,9 @@
+iptables-fsinf (2013-07-06-2) precise; urgency=low
+
+  * Update source in binary package
+
+ -- Mathias Ertl <apt-repository@fsinf.at>  Sat, 06 Jul 2013 00:15:00 +0200
+
 iptables-fsinf (2013-07-06-1) precise; urgency=low
 
   * Remove a stray set -x statement
