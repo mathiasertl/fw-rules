@@ -1,4 +1,10 @@
 iptables-fsinf (2013-07-05-1) precise; urgency=low
+
+  * Remove localized changelogs.
+
+ -- Mathias Ertl <apt-repository@fsinf.at>  Fri, 05 Jul 2013 23:45:57 +0200
+
+iptables-fsinf (2013-07-05-1) precise; urgency=low
   
   * Update list of hosts
   * Add config variables ({INPUT,FORWARD,OUTPUT}_POLICY) for default chain
