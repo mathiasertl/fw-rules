@@ -1,3 +1,12 @@
+iptables-fsinf (2013-07-05-1) precise; urgency=low
+  
+  * Update list of hosts
+  * Add config variables ({INPUT,FORWARD,OUTPUT}_POLICY) for default chain
+    policies
+  * Automatically create munin rules depending on contents of munin.conf
+
+ -- Mathias Ertl <apt-repository@fsinf.at>  Fri, 05 Jul 2013 23:11:27 +0200
+
 iptables-fsinf (2012-11-21-1) precise; urgency=low
   
   * Update list of hosts
