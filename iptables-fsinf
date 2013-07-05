@@ -40,8 +40,11 @@ cd $exec_dir
 [ -z $INITDIR ]      && INITDIR="$CONFBASEDIR/init.d"
 
 # default settings:
-[ -z $ENABLE_V6 ] && ENABLE_V6='y'
-[ -z $ENABLE_V4 ] && ENABLE_v4='y'
+[ -z $ENABLE_V6 ]    && ENABLE_V6='y'
+[ -z $ENABLE_V4 ]    && ENABLE_v4='y'
+[ -z $INPUT_POLICY ] && INPUT_POLICY='DROP'
+[ -z $OUTPUT_POLICY ] && OUTPUT_POLICY='ACCEPT'
+[ -z $FORWARD_POLICY ] && FORWARD_POLICY='DROP'
 
 # include functions
 for file in $(find $INCLUDEDIR -type f -or -type l | sort | grep '.sh$')
