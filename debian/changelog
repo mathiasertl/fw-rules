@@ -1,3 +1,10 @@
+iptables-fsinf (2013-07-06-1) precise; urgency=low
+
+  * Remove a stray set -x statement
+  * test for root on startup.
+
+ -- Mathias Ertl <apt-repository@fsinf.at>  Sat, 06 Jul 2013 00:09:54 +0200
+
 iptables-fsinf (2013-07-05-2) precise; urgency=low
 
   * Remove localized changelogs.
