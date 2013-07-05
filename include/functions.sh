@@ -17,7 +17,7 @@
 reset4() {
 	iptables -P INPUT ACCEPT
 	iptables -P OUTPUT ACCEPT
-	iptables -P FORWARD DROP
+	iptables -P FORWARD ACCEPT
 	iptables -F
 	iptables -X
 }
@@ -25,7 +25,7 @@ reset4() {
 reset6() {
 	ip6tables -P INPUT ACCEPT
 	ip6tables -P OUTPUT ACCEPT
-	ip6tables -P FORWARD DROP
+	ip6tables -P FORWARD ACCEPT
 	ip6tables -F
 	ip6tables -X
 }
