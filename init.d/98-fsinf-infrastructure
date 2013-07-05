@@ -6,7 +6,6 @@ ENCELADUS_ESCAPED=$(echo $ENCELADUS4 | sed 's/\./\\\\./g')
 if [ "$FSINF_INFRASTRUCTURE" = "y" ]; then
 	# doing munin configuration
 	if [ -f ${MUNIN_CONFIG_FILE} ]; then
-        set -x
         if [ $(grep -c "^allow \^$ENCELADUS_ESCAPED\$$" $MUNIN_CONFIG_FILE) -eq 1 ]; then
             echo rule4 -A INPUT -p tcp --dport 4949 -j ACCEPT -s $ENCELADUS4
     		rule4 -A INPUT -p tcp --dport 4949 -j ACCEPT -s $ENCELADUS4
