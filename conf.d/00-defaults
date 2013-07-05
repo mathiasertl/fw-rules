@@ -2,6 +2,11 @@
 # additional files in the same directory and suffix them with a higher integer
 # and update the settings there.
 
+# default chain policies
+INPUT_POLICY='DROP'
+OUTPUT_POLICY='ACCEPT'
+FORWARD_POLICY='DROP'
+
 # traffic counters
 COUNT_TCP=""
 COUNT_UDP=""
