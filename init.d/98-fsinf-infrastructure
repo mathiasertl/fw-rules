@@ -1,9 +1,19 @@
 # make defaults settings:
 [ -z ${MUNIN_CONFIG_FILE} ] && MUNIN_CONFIG_FILE=/etc/munin/munin-node.conf
 
+ENCELADUS_ESCAPED=$(echo $ENCELADUS4 | sed 's/\./\\\\./g')
+
 if [ "$FSINF_INFRASTRUCTURE" = "y" ]; then
 	# doing munin configuration
 	if [ -f ${MUNIN_CONFIG_FILE} ]; then
-		rule4 -A INPUT -p tcp --dport 4949 -j ACCEPT -s $ENCELADUS4
+        set -x
+        if [ $(grep -c "^allow \^$ENCELADUS_ESCAPED\$$" $MUNIN_CONFIG_FILE) -eq 1 ]; then
+            echo rule4 -A INPUT -p tcp --dport 4949 -j ACCEPT -s $ENCELADUS4
+    		rule4 -A INPUT -p tcp --dport 4949 -j ACCEPT -s $ENCELADUS4
+        fi
+        if [ $(grep -c "^allow \^$ENCELADUS6\$$" $MUNIN_CONFIG_FILE) -eq 1 ]; then
+    		echo rule4 -A INPUT -p tcp --dport 4949 -j ACCEPT -s $ENCELADUS6
+    		rule4 -A INPUT -p tcp --dport 4949 -j ACCEPT -s $ENCELADUS6
+        fi
 	fi
 fi

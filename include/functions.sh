@@ -13,11 +13,16 @@
 # You should have received a copy of the GNU General Public License
 # along with iptables-fsinf.  If not, see <http://www.gnu.org/licenses/>.
 
+# Set some settings, just to be sure:
+[ -z $INPUT_POLICY ] && INPUT_POLICY='DROP'
+[ -z $OUTPUT_POLICY ] && OUTPUT_POLICY='ACCEPT'
+[ -z $FORWARD_POLICY ] && FORWARD_POLICY='DROP'
+
 # Accept all connections in case of an error
 reset4() {
 	iptables -P INPUT ACCEPT
 	iptables -P OUTPUT ACCEPT
-	iptables -P FORWARD DROP
+	iptables -P FORWARD ACCEPT
 	iptables -F
 	iptables -X
 }
@@ -25,7 +30,7 @@ reset4() {
 reset6() {
 	ip6tables -P INPUT ACCEPT
 	ip6tables -P OUTPUT ACCEPT
-	ip6tables -P FORWARD DROP
+	ip6tables -P FORWARD ACCEPT
 	ip6tables -F
 	ip6tables -X
 }
@@ -130,9 +135,9 @@ init4() {
 	cleanup4
 
 	echo '# Initialize IPv4'
-	rule4 -P INPUT DROP
-	rule4 -P FORWARD DROP
-	rule4 -P OUTPUT ACCEPT
+	rule4 -P INPUT $INPUT_POLICY
+	rule4 -P FORWARD $FORWARD_POLICY
+	rule4 -P OUTPUT $OUTPUT_POLICY
 
 	# accept established connections right away:
 	rule4 -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
@@ -148,9 +153,9 @@ init6() {
 	cleanup6
 
 	echo '# initialize IPv6'
-	rule6 -P INPUT DROP
-	rule6 -P FORWARD DROP
-	rule6 -P OUTPUT ACCEPT
+	rule6 -P INPUT $INPUT_POLICY
+	rule6 -P FORWARD $FORWARD_POLICY
+	rule6 -P OUTPUT $OUTPUT_POLICY
 	
 	# accept established connections right away:
 	rule6 -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
