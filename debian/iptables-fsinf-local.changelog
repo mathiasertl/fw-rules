@@ -1,0 +1,7 @@
+iptables-fsinf (2013-07-30-1) precise; urgency=low
+
+  * First version documented in a separate changelog.
+  * Remove stray echo statements in init.d/98-fsinf-infrastructure.
+  * Rename various files in conf.d/ to more sensible locations.
+
+ -- Mathias Ertl <apt-repository@fsinf.at>  Tue, 30 Jul 2013 19:50:22 +0200
