@@ -23,5 +23,13 @@ Description: Additional rules for local fsinf installations
 Package: iptables-fsinf-saturn
 Architecture: all
 Depends: ${misc:Depends}, iptables-fsinf
+Conflicts: iptables-fsinf-sol
 Description: Additional rules for virtual machines on saturn.
  Contains some config-files that can be used on virtual machines on saturn.
+
+Package: iptables-fsinf-sol
+Architecture: all
+Depends: ${misc:Depends}, iptables-fsinf
+Conflicts: iptables-fsinf-saturn
+Description: Additional rules for virtual machines on sol.
+ Contains some config-files that can be used on virtual machines on sol.
