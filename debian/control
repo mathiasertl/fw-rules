@@ -19,3 +19,9 @@ Architecture: all
 Depends: ${misc:Depends}, iptables-fsinf
 Description: Additional rules for local fsinf installations
  Contains some config-files that can be used inside the fsinf.
+
+Package: iptables-fsinf-saturn
+Architecture: all
+Depends: ${misc:Depends}, iptables-fsinf
+Description: Additional rules for virtual machines on saturn.
+ Contains some config-files that can be used on virtual machines on saturn.
