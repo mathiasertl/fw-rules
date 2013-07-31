@@ -10,7 +10,7 @@ if [ "$FSINF_INFRASTRUCTURE" = "y" ]; then
     		rule4 -A INPUT -p tcp --dport 4949 -j ACCEPT -s $ENCELADUS4_LOCAL
         fi
         if [ $(grep -c "^allow \^$ENCELADUS6_LOCAL\$$" $MUNIN_CONFIG_FILE) -eq 1 ]; then
-    		rule4 -A INPUT -p tcp --dport 4949 -j ACCEPT -s $ENCELADUS6_LOCAL
+    		rule6 -A INPUT -p tcp --dport 4949 -j ACCEPT -s $ENCELADUS6_LOCAL
         fi
 	fi
 fi
