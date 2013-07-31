@@ -1,3 +1,9 @@
+iptables-fsinf (2013-07-31-1) precise; urgency=low
+
+  * Use correct rule6 for IPv6 listen-directives in munin-node.conf.
+
+ -- Mathias Ertl <apt-repository@fsinf.at>  Wed, 31 Jul 2013 19:33:12 +0200
+
 iptables-fsinf (2013-07-30-1) precise; urgency=low
 
   * First version documented in a separate changelog.
