@@ -1,3 +1,9 @@
+iptables-fsinf (2013-08-04-1) precise; urgency=low
+
+  * New source version.
+
+ -- Mathias Ertl <apt-repository@fsinf.at>  Sun, 04 Aug 2013 22:33:21 +0200
+
 iptables-fsinf (2013-07-31-1) precise; urgency=low
 
   * New source version.
