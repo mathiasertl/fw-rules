@@ -1,6 +1,7 @@
 iptables-fsinf (2014-02-08-1) precise; urgency=low
 
-  * Add new hosts: rhea, anthe, tor, kolab
+  * Add new hosts: rhea, anthe, tor, kolab.
+  * Depend on debhelper >= 9.
 
  -- Mathias Ertl <apt-repository@fsinf.at>  Sat, 08 Feb 2014 14:22:41 +0100
 
