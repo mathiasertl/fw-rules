@@ -1,3 +1,9 @@
+iptables-fsinf (2014-07-19-2) precise; urgency=low
+
+  * Remove local changelogs (only adds to the confusion).
+
+ -- Mathias Ertl <apt-repository@fsinf.at>  Sat, 19 Jul 2014 11:27:21 +0200
+
 iptables-fsinf (2014-07-19-1) precise; urgency=low
 
   * Remove some unused hosts, add hyperion and banzai.
