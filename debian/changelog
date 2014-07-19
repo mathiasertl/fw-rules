@@ -1,3 +1,9 @@
+iptables-fsinf (2014-07-19.1-1) precise; urgency=low
+
+  * Add titan to list of saturn hosts.
+
+ -- Mathias Ertl <apt-repository@fsinf.at>  Sat, 19 Jul 2014 13:28:10 +0200
+
 iptables-fsinf (2014-07-19-2) precise; urgency=low
 
   * Remove local changelogs (only adds to the confusion).
