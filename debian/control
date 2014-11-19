@@ -1,7 +1,7 @@
 Source: iptables-fsinf
 Section: net
 Priority: optional
-Maintainer: Mathias Ertl <apt-repository@fsinf.at>
+Maintainer: Mathias Ertl <mati@fsinf.at>
 Standards-Version: 3.9.2
 Build-Depends: debhelper (>= 9)
 Vcs-Browser: http://git.fsinf.at/fsinf/fw-rules
