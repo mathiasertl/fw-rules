@@ -1,3 +1,9 @@
+iptables-fsinf (2014-11-19-1) precise; urgency=low
+
+  * Update some hosts: pallene, dav, methone.
+
+ -- Mathias Ertl <mati@fsinf.at>  Wed, 19 Nov 2014 20:34:47 +0100
+
 iptables-fsinf (2014-07-19.1-1) precise; urgency=low
 
   * Add titan to list of saturn hosts.
