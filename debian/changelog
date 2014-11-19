@@ -1,6 +1,7 @@
 iptables-fsinf (2014-11-19-1) precise; urgency=low
 
   * Update some hosts: pallene, dav, methone.
+  * Update maintainer address and Vcs-* fields.
 
  -- Mathias Ertl <mati@fsinf.at>  Wed, 19 Nov 2014 20:34:47 +0100
 

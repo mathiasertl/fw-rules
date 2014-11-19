@@ -4,8 +4,8 @@ Priority: optional
 Maintainer: Mathias Ertl <mati@fsinf.at>
 Standards-Version: 3.9.2
 Build-Depends: debhelper (>= 9)
-Vcs-Browser: http://git.fsinf.at/fsinf/fw-rules
-Vcs-Git: http://git.fsinf.at/fsinf/fw-rules.git
+Vcs-Browser: https://github.com/mathiasertl/fw-rules
+Vcs-Git: https://github.com/mathiasertl/fw-rules.git
 
 Package: iptables-fsinf
 Architecture: all
