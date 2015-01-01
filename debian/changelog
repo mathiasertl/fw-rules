@@ -1,3 +1,9 @@
+iptables-fsinf (2015-01-01-1) precise; urgency=low
+
+  * Add hosts skoll, skathi, atlas.
+
+ -- Mathias Ertl <mati@fsinf.at>  Thu, 01 Jan 2015 14:13:32 +0100
+
 iptables-fsinf (2014-12-25-1) precise; urgency=low
 
   * Emergency release to block some hosts.
