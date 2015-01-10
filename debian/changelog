@@ -1,3 +1,9 @@
+iptables-fsinf (2015-01-10-1) precise; urgency=low
+
+  * Update source code (was left out last time).
+
+ -- Mathias Ertl <mati@fsinf.at>  Sat, 10 Jan 2015 14:55:47 +0100
+
 iptables-fsinf (2015-01-01-1) precise; urgency=low
 
   * Add hosts skoll, skathi, atlas.
