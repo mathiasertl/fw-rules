@@ -33,7 +33,7 @@ Description: Configuration for the internal network
 
 Package: iptables-fsinf-saturn
 Architecture: all
-Depends: ${misc:Depends}, iptables-fsinf-internal
+Depends: iptables-fsinf-internal, ${misc:Depends}
 Section: oldlibs
 Priority: extra
 Conflicts: iptables-fsinf-sol
@@ -42,7 +42,7 @@ Description: transitional dummy package
 
 Package: iptables-fsinf-sol
 Architecture: all
-Depends: ${misc:Depends}, iptables-fsinf-internal
+Depends: iptables-fsinf-internal, ${misc:Depends}
 Priority: extra
 Section: oldlibs
 Conflicts: iptables-fsinf-saturn
