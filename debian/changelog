@@ -3,6 +3,7 @@ iptables-fsinf (2015-09-27-1) precise; urgency=low
   * Deprecate virtual machine host specific packages, all machines now us a
     common internal network, instead use iptables-fsinf-internal
   * Remove leftover debian/fsinf file.
+  * Source lsb init-functions in init-script.
 
  -- Mathias Ertl <mati@fsinf.at>  Sun, 27 Sep 2015 16:45:47 +0200
 
