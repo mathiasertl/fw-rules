@@ -1,4 +1,5 @@
-conf.d/01-hosts-internal /etc/iptables-fsinf/conf.d
+conf.d/01-hosts /etc/iptables-fsinf/conf.d
+conf.d/01-hosts-external /etc/iptables-fsinf/conf.d
 conf.d/02-hosts-tuwien /etc/iptables-fsinf/conf.d
 conf.d/10-fsinf /etc/iptables-fsinf/conf.d/
 conf.d/11-tuvienna /etc/iptables-fsinf/conf.d/
