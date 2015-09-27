@@ -37,8 +37,8 @@ Depends: ${misc:Depends}, iptables-fsinf-internal
 Section: oldlibs
 Priority: extra
 Conflicts: iptables-fsinf-sol
-Description: Additional rules for virtual machines on saturn.
- Contains some config-files that can be used on virtual machines on saturn.
+Description: transitional dummy package
+ This is a transitional dummy package. It can safely be removed.
 
 Package: iptables-fsinf-sol
 Architecture: all
@@ -46,5 +46,5 @@ Depends: ${misc:Depends}, iptables-fsinf-internal
 Priority: extra
 Section: oldlibs
 Conflicts: iptables-fsinf-saturn
-Description: Additional rules for virtual machines on sol.
- Contains some config-files that can be used on virtual machines on sol.
+Description: transitional dummy package
+ This is a transitional dummy package. It can safely be removed.
