@@ -23,10 +23,10 @@ Description: Additional rules for local fsinf installations
 Package: iptables-fsinf-internal
 Architecture: all
 Depends: ${misc:Depends}, iptables-fsinf-local
-Replaces: iptables-fsinf-saturn (<< 2015-09-27-1), 
- iptables-fsinf-sol (<< 2015-09-27-1)
-Breaks: iptables-fsinf-saturn (<< 2015-09-27-1), 
- iptables-fsinf-sol (<< 2015-09-27-1)
+Replaces: iptables-fsinf-saturn (<< 2015-09-27-1~), 
+ iptables-fsinf-sol (<< 2015-09-27-1~)
+Breaks: iptables-fsinf-saturn (<< 2015-09-27-1~), 
+ iptables-fsinf-sol (<< 2015-09-27-1~)
 Description: Configuration for the internal network
  Contains some config-files that configure hosts used in the internal network
  accessible from hosts hosted inside FSINF.
