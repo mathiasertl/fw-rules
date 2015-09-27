@@ -2,6 +2,7 @@ iptables-fsinf (2015-09-27-2) precise; urgency=low
 
   * Remove /etc/iptables-fsinf/conf.d/01-internal-hosts, it's no longer used.
   * Add '~' to Replaces/Breaks, so old packages are not automaticall removed.
+  * Add --no-start to dh_installinit.
 
  -- Mathias Ertl <mati@fsinf.at>  Sun, 27 Sep 2015 16:45:47 +0200
 
