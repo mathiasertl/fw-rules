@@ -20,16 +20,31 @@ Depends: ${misc:Depends}, iptables-fsinf
 Description: Additional rules for local fsinf installations
  Contains some config-files that can be used inside the fsinf.
 
+Package: iptables-fsinf-internal
+Architecture: all
+Depends: ${misc:Depends}, iptables-fsinf-local
+Replaces: iptables-fsinf-saturn (<< 2015-09-27-1), 
+ iptables-fsinf-sol (<< 2015-09-27-1)
+Breaks: iptables-fsinf-saturn (<< 2015-09-27-1), 
+ iptables-fsinf-sol (<< 2015-09-27-1)
+Description: Configuration for the internal network
+ Contains some config-files that configure hosts used in the internal network
+ accessible from hosts hosted inside FSINF.
+
 Package: iptables-fsinf-saturn
 Architecture: all
-Depends: ${misc:Depends}, iptables-fsinf
+Depends: ${misc:Depends}, iptables-fsinf-internal
+Section: oldlibs
+Priority: extra
 Conflicts: iptables-fsinf-sol
 Description: Additional rules for virtual machines on saturn.
  Contains some config-files that can be used on virtual machines on saturn.
 
 Package: iptables-fsinf-sol
 Architecture: all
-Depends: ${misc:Depends}, iptables-fsinf
+Depends: ${misc:Depends}, iptables-fsinf-internal
+Priority: extra
+Section: oldlibs
 Conflicts: iptables-fsinf-saturn
 Description: Additional rules for virtual machines on sol.
  Contains some config-files that can be used on virtual machines on sol.
