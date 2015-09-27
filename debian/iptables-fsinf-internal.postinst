@@ -5,6 +5,7 @@ set -e
 case "$1" in
     configure|reconfigure)
         # remove config files from old package
+        rm -f /etc/iptables-fsinf/conf.d/01-internal-hosts
         rm -f /etc/iptables-fsinf/conf.d/03-hosts-saturn
         rm -f /etc/iptables-fsinf/conf.d/03-hosts-sol
         rm -f /etc/iptables-fsinf/init.d/97-saturn-infrastructure
