@@ -1,4 +1,8 @@
 #!/usr/bin/make -f
 
+override_dh_installinit:
+	# only register script, is installed by dh_install
+	dh_installinit -o
+
 %:
 	dh $@
