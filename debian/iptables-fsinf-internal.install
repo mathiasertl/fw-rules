@@ -1,1 +1,2 @@
 conf.d/01-hosts-internal /etc/iptables-fsinf/conf.d
+init.d/97-internal-infrastructure /etc/iptables-fsinf/init.d
