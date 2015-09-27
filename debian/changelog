@@ -4,6 +4,7 @@ iptables-fsinf (2015-09-27-1) precise; urgency=low
     common internal network, instead use iptables-fsinf-internal
   * Remove leftover debian/fsinf file.
   * Source lsb init-functions in init-script.
+  * Remove useless postinst/postrm scripts.
 
  -- Mathias Ertl <mati@fsinf.at>  Sun, 27 Sep 2015 16:45:47 +0200
 
