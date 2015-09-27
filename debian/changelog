@@ -4,7 +4,7 @@ iptables-fsinf (2015-09-27-2) precise; urgency=low
   * Add '~' to Replaces/Breaks, so old packages are not automaticall removed.
   * Add --no-start to dh_installinit.
 
- -- Mathias Ertl <mati@fsinf.at>  Sun, 27 Sep 2015 16:45:47 +0200
+ -- Mathias Ertl <mati@fsinf.at>  Sun, 27 Sep 2015 17:22:13 +0200
 
 iptables-fsinf (2015-09-27-1) precise; urgency=low
 
