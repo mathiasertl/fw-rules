@@ -2,7 +2,7 @@
 
 override_dh_installinit:
 	# only register script, is installed by dh_install
-	dh_installinit -o
+	dh_installinit -piptables-fsinf -o
 
 %:
 	dh $@
