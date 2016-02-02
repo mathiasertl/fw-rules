@@ -109,26 +109,33 @@ start() {
 	count_traffic
 }
 
-case "$1" in
-start)
-	start
-	;;
-stop)
-	reset
-	;;
-force-reload|restart)
-	reset
-	start
-	;;
-reload)
+reload() {
     reset
     start
 
     iptables-save > $IPTABLES_SAVE
     ip6tables-save > $IP6TABLES_SAVE
-    ;;
+}
+
+case "$1" in
+start)
+    if [ ! -e $IPTABLES_SAVE -o ! -e $IP6TABLES_SAVE ]; then
+        # either of the files does not exist, recreate files
+        reload
+    else
+        # files exist, so we do a restore
+        cat $IPTABLES_SAVE | iptables-restore
+        cat $IP6TABLES_SAVE | ip6tables-restore
+    fi
+	;;
+stop)
+	reset
+	;;
+restart)
+    reload
+	;;
 *)
-	echo "Usage: /etc/init.d/networking {start|stop|restart|force-reload}"
+	echo "Usage: /etc/init.d/networking {start|stop|restart}"
 	exit 1
 	;;
 esac
