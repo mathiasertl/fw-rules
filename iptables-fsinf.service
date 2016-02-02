@@ -1,7 +1,7 @@
 [Unit]
-Description=XMPP Server
-Wants=network-pre.target
-Before=network-pre.target
+Description=iptables firewall
+#Wants=network-pre.target
+#Before=network-pre.target
 
 [Service]
 User=root
@@ -11,3 +11,6 @@ ExecStart=/usr/bin/iptables-fsinf start
 ExecStop=/usr/bin/iptables-fsinf stop
 ExecReload=/usr/bin/iptables-fsinf reload
 RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
