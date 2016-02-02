@@ -3,7 +3,7 @@ Section: net
 Priority: optional
 Maintainer: Mathias Ertl <mati@fsinf.at>
 Standards-Version: 3.9.6
-Build-Depends: debhelper (>= 9)
+Build-Depends: debhelper (>= 9), dh-systemd (>= 1.5)
 Vcs-Browser: https://github.com/mathiasertl/fw-rules
 Vcs-Git: https://github.com/mathiasertl/fw-rules.git
 
