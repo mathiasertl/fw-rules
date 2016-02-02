@@ -53,7 +53,7 @@ rule4() {
 			if [ "${?}" -ne 0 ]; then
 				echo "FAILED SETTING UP IPv4 FIREWALL. RESETTING TO SAFE DEFAULT STATE."
 				reset4
-				ENABLE_IPV4='n'
+				ENABLE_V4='n'
 			fi
 		fi
 	fi
@@ -74,7 +74,7 @@ rule6() {
 			if [ "${?}" -ne 0 ]; then
 				echo "FAILED SETTING UP IPv6 FIREWALL. RESETTING TO SAFE DEFAULT STATE."
 				reset6
-				ENABLE_IPV6='n'
+				ENABLE_V6='n'
 			fi
 		fi
 	fi
