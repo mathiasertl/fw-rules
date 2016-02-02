@@ -1,2 +1,2 @@
 include /etc/iptables-fsinf/
-iptables-fsinf /etc/init.d/
+iptables-fsinf /usr/bin/
