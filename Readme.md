@@ -65,12 +65,48 @@ Example:
 
 ```
 ENABLED=y
+
+# Accept all traffic from ports 22, 80 and 443. We expand the current value of
+# the variable in case something else was # already defined.
 GLOBAL_PORTS="$GLOBAL_PORTS 22 80 443"
 
-# block example.com, for some reason
+# Block example.com, for some reason
 BLOCKED_HOSTS="$BLOCKED_HOSTS 93.184.216.34 2606:2800:220:1:248:1893:25c8:1946"
 ```
 
 Note that the `{INPUT,FORWARD,OUTPUT}_POLICY` settings are used for both IPv4
 and IPv6, if you want a different setting, you have to set it manually
 somewhere in the `init.d` directory. 
+
+## Advanced configuration
+
+For more advanced configuration, you drop any shell script in
+`/etc/iptables-fsinf/init.d/`. There are a few shell functions available as a
+convenience:
+
+function | purpose
+-------- | -------
+rule4 | Call `iptables` with the passed parameters.
+rule6 | Call `ip6tables` with the passed parameters.
+rule_list | Call either based on a given list of parameters.
+
+The feature of these functions is that if any call to `iptables`/`ip6tables`
+fails, the whole IPv6/IPv6 ruleset will be reset to the default safe state,
+subsequent calls to these functions will then do nothing. Note however that all
+files in the `init.d` directory are still normally included, so if you call
+anything manually (or call `rm -rf /` or whatever), this will still happen.
+
+``rule_list`` is a function useful if you want to have the same rule for e.g.
+multiple hosts. The first parameter is a list if IPs, the function will call
+iptables and/or ip6tables depending on the IPs. Example:
+
+```
+rule_list "192.168.0.10 fd00::10 -A INPUT -p udp --sport 53 -j ACCEPT -s
+```
+
+... will become:
+
+```
+iptables -A INPUT -p udp --sport 53 -j ACCEPT -s 192.168.0.10
+ip6tables -A INPUT -p udp --sport 53 -j ACCEPT -s fd00::10
+```
