@@ -47,8 +47,8 @@ cd $exec_dir
 [ -z $FORWARD_POLICY ] && FORWARD_POLICY='DROP'
 
 # save files:
-[ -z $IPTABLES_SAVE ] && IPTABLES_SAVE="$CONFBASEDIR/iptables.v4"
-[ -z $IP6TABLES_SAVE ] && IP6TABLES_SAVE="$CONFBASEDIR/iptables.v6"
+[ -z $IPTABLES_SAVE ] && IPTABLES_SAVE="$CONFBASEDIR/iptables.rules"
+[ -z $IP6TABLES_SAVE ] && IP6TABLES_SAVE="$CONFBASEDIR/ip6tables.rules"
 
 # test for root:
 if [ $(id -u) -ne 0 ]; then
