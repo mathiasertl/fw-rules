@@ -1,6 +1,9 @@
 iptables-fsinf (2016-02-02-1) unstable; urgency=low
 
   * Remove transitional packages iptables-fsinf-saturn and iptables-fsinf-sol.
+  * Add new hosts: arch, intns1, intns2.
+  * Remove hosts: grace, welcometucode.
+  * Add IPv6 addresses for TU nameservers.
 
  -- Mathias Ertl <mati@fsinf.at>  Sun, 27 Sep 2015 17:22:13 +0200
 
