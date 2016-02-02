@@ -1,0 +1,14 @@
+Unit]
+Description=XMPP Server
+After=network.target
+
+[Service]
+User=root
+Group=root
+Type=oneshot
+ExecStart=/usr/bin/iptables-fsinf start
+ExecStop=/usr/bin/iptables-fsinf stop
+ExecReload=/usr/bin/iptables-fsinf reload
+
+[Install]
+WantedBy=multi-user.target

@@ -46,6 +46,10 @@ cd $exec_dir
 [ -z $OUTPUT_POLICY ] && OUTPUT_POLICY='ACCEPT'
 [ -z $FORWARD_POLICY ] && FORWARD_POLICY='DROP'
 
+# save files:
+[ -z $IPTABLES_SAVE ] && IPTABLES_SAVE="$CONFBASEDIR/iptables.v4"
+[ -z $IP6TABLES_SAVE ] && IP6TABLES_SAVE="$CONFBASEDIR/iptables.v6"
+
 # test for root:
 if [ $(id -u) -ne 0 ]; then
     if [ $DRYRUN = 'n' ]; then
@@ -105,19 +109,33 @@ start() {
 	count_traffic
 }
 
+reload() {
+    reset
+    start
+
+    iptables-save > $IPTABLES_SAVE
+    ip6tables-save > $IP6TABLES_SAVE
+}
+
 case "$1" in
 start)
-	start
+    if [ ! -e $IPTABLES_SAVE -o ! -e $IP6TABLES_SAVE ]; then
+        # either of the files does not exist, recreate files
+        reload
+    else
+        # files exist, so we do a restore
+        cat $IPTABLES_SAVE | iptables-restore
+        cat $IP6TABLES_SAVE | ip6tables-restore
+    fi
 	;;
 stop)
 	reset
 	;;
-force-reload|restart)
-	reset
-	start
+restart|reload)
+    reload
 	;;
 *)
-	echo "Usage: /etc/init.d/networking {start|stop|restart|force-reload}"
+	echo "Usage: /etc/init.d/networking {start|stop|restart}"
 	exit 1
 	;;
 esac
