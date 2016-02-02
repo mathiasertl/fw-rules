@@ -46,6 +46,10 @@ cd $exec_dir
 [ -z $OUTPUT_POLICY ] && OUTPUT_POLICY='ACCEPT'
 [ -z $FORWARD_POLICY ] && FORWARD_POLICY='DROP'
 
+# save files:
+[ -z $IPTABLES_SAVE ] && IPTABLES_SAVE="$CONFBASEDIR/iptables.v4"
+[ -z $IP6TABLES_SAVE ] && IP6TABLES_SAVE="$CONFBASEDIR/iptables.v6"
+
 # test for root:
 if [ $(id -u) -ne 0 ]; then
     if [ $DRYRUN = 'n' ]; then
@@ -120,8 +124,8 @@ reload)
     reset
     start
 
-    iptables-save > /etc/iptables-fsinf/iptables.v4
-    ip6tables-save > /etc/iptables-fsinf/iptables.v6
+    iptables-save > $IPTABLES_SAVE
+    ip6tables-save > $IP6TABLES_SAVE
     ;;
 *)
 	echo "Usage: /etc/init.d/networking {start|stop|restart|force-reload}"
