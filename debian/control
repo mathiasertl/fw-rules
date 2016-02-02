@@ -30,21 +30,3 @@ Breaks: iptables-fsinf-saturn (<< 2015-09-27-1~),
 Description: Configuration for the internal network
  Contains some config-files that configure hosts used in the internal network
  accessible from hosts hosted inside FSINF.
-
-Package: iptables-fsinf-saturn
-Architecture: all
-Depends: iptables-fsinf-internal, ${misc:Depends}
-Section: oldlibs
-Priority: extra
-Conflicts: iptables-fsinf-sol
-Description: transitional dummy package
- This is a transitional dummy package. It can safely be removed.
-
-Package: iptables-fsinf-sol
-Architecture: all
-Depends: iptables-fsinf-internal, ${misc:Depends}
-Priority: extra
-Section: oldlibs
-Conflicts: iptables-fsinf-saturn
-Description: transitional dummy package
- This is a transitional dummy package. It can safely be removed.
