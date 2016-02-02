@@ -131,7 +131,7 @@ start)
 stop)
 	reset
 	;;
-restart)
+restart|reload)
     reload
 	;;
 *)
