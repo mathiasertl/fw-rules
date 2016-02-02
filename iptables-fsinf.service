@@ -10,3 +10,4 @@ Type=oneshot
 ExecStart=/usr/bin/iptables-fsinf start
 ExecStop=/usr/bin/iptables-fsinf stop
 ExecReload=/usr/bin/iptables-fsinf reload
+RemainAfterExit=yes
