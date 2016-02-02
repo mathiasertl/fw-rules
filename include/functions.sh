@@ -43,6 +43,11 @@ reset() {
 rule4() {
 	if [ "$ENABLE_V4" != 'n' ]; then
 		echo iptables ${@}
+
+	if [ -n "$IPTABLES_SAVE" ]; then
+		echo ${@} >> $IPTABLES_SAVE
+	fi
+
 		if [ "$DRYRUN" = 'n' ]; then
 			iptables ${@}
 			if [ "${?}" -ne 0 ]; then
@@ -59,6 +64,11 @@ rule4() {
 rule6() {
 	if [ "$ENABLE_V6" != 'n' ]; then
 		echo ip6tables ${@}
+
+	if [ -n "$IP6TABLES_SAVE" ]; then
+		echo ${@} >> $IP6TABLES_SAVE
+	fi
+
 		if [ "$DRYRUN" = 'n' ]; then
 			ip6tables ${@}
 			if [ "${?}" -ne 0 ]; then
@@ -134,6 +144,11 @@ init4() {
 	fi
 	cleanup4
 
+	if [ -n "$IPTABLES_SAVE" ]; then
+		rm -f $IPTABLES_SAVE
+		mkdir -p `dirname $IPTABLES_SAVE`
+	fi
+
 	echo '# Initialize IPv4'
 	rule4 -P INPUT $INPUT_POLICY
 	rule4 -P FORWARD $FORWARD_POLICY
@@ -151,6 +166,11 @@ init6() {
 		return
 	fi
 	cleanup6
+
+	if [ -n "$IP6TABLES_SAVE" ]; then
+		rm -f $IP6TABLES_SAVE
+		mkdir -p `dirname $IP6TABLES_SAVE`
+	fi
 
 	echo '# initialize IPv6'
 	rule6 -P INPUT $INPUT_POLICY
