@@ -1,3 +1,12 @@
+iptables-fsinf (2016.02.20.1-1) unstable; urgency=low
+
+  * Remove hosts iswjestija, ask and makemake.
+  * Add etherpad host.
+  * Change addresses for titan, titan-alt, hyperion, arch, techtrrrs, monique,
+    borgcupe and brik.
+
+ -- Mathias Ertl <mati@fsinf.at>  Sat, 20 Feb 2016 11:08:07 +0100
+
 iptables-fsinf (2016.02.02.2-1) unstable; urgency=low
 
   * Fix systemd service file.
