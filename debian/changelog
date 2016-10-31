@@ -1,3 +1,9 @@
+iptables-fsinf (2016.10.31.1-1) unstable; urgency=low
+
+  * Update IDs for titan.htu and hyperion.htu.
+
+ -- Mathias Ertl <mati@fsinf.at>  Mon, 31 Oct 2016 18:01:53 +0100
+
 iptables-fsinf (2016.02.20.1-1) unstable; urgency=low
 
   * Remove hosts iswjestija, ask and makemake.
