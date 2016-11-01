@@ -1,3 +1,6 @@
+# Galera (MySQL) cluster configuration, see also:
+#   http://galeracluster.com/documentation-webpages/iptables.html
+
 if [ -n "$GALERA_NODES" ]; then
     rule_list "$GALERA_NODES" -A INPUT -i ${GALERA_IFACE:-eth0} -p tcp --match tcp --dport 3306 -j ACCEPT -s
     rule_list "$GALERA_NODES" -A INPUT -i ${GALERA_IFACE:-eth0} -p tcp --match tcp --dport 4567 -j ACCEPT -s
