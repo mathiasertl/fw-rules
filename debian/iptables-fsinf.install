@@ -1,2 +1,3 @@
 include /etc/iptables-fsinf/
+init.d/80-galera /etc/iptables-fsinf/init.d/
 iptables-fsinf /usr/bin/
