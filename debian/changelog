@@ -1,3 +1,9 @@
+iptables-fsinf (2016.11.02.1-1) unstable; urgency=low
+
+  * XMPP hosts get ID+1 at request from ZID.
+
+ -- Mathias Ertl <mati@fsinf.at>  Wed, 02 Nov 2016 21:02:32 +0100
+
 iptables-fsinf (2016.11.01.1-1) unstable; urgency=low
 
   * Add new host: xmpp2.
