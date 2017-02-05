@@ -25,7 +25,7 @@ To force reloading the configuration and recreating the files used by
 iptables-restore, use restart:
 
 ```
-systemctl restart iptables-fsinf
+systemctl reload iptables-fsinf
 ```
 
 To reset the firewall to a save default state (all chains with the default
