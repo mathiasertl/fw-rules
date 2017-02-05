@@ -52,12 +52,13 @@ available right away:
 
 variabe | purpose
 ------- | -------
+BLOCKED_HOSTS | If set, given addresses are blocked from all traffic.
 ENABELED | Unless set to `y`, this script will nothing. The default is `n`.
+ENABLE_ICMP | If set to `n`, do not allow pings.
 ENABLE_V4 | If set to `n`, do not configure IPv4.
 ENABLE_V6 | If set to `n`, do not configure IPv6.
-BLOCKED_HOSTS | If set, given addresses are blocked from all traffic.
-GLOBAL_PORTS | If set, this machine will accept all traffic for a given port.
 FORWARD_POLICY | The policy for the FORWARD chain. The default is `DROP`.
+GLOBAL_PORTS | If set, this machine will accept all traffic for a given port.
 INPUT_POLICY | The policy for the INPUT chain. The default is `DROP`.
 OUTPUT_POLICY | The policy for the OUTPUT chain. The default is `ACCEPT`.
 
