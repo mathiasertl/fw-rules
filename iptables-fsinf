@@ -45,6 +45,7 @@ cd $exec_dir
 [ -z $INPUT_POLICY ] && INPUT_POLICY='DROP'
 [ -z $OUTPUT_POLICY ] && OUTPUT_POLICY='ACCEPT'
 [ -z $FORWARD_POLICY ] && FORWARD_POLICY='DROP'
+[ -z $ENABLE_ICMP ] && FORWARD_POLICY='y'
 
 # save files:
 [ -z $IPTABLES_SAVE ] && IPTABLES_SAVE="$CONFBASEDIR/iptables.rules"

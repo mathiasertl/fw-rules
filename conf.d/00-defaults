@@ -20,3 +20,5 @@ BLOCKED_HOSTS=''
 
 # ports available globally
 GLOBAL_PORTS=''
+
+ENABLE_ICMP='y'

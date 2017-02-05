@@ -158,9 +158,6 @@ init4() {
 	rule4 -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
 	# accept anything from local
 	rule4 -A INPUT -s 127.0.0.1 -i lo -j ACCEPT
-
-	# define ICMPv4 chain
-	icmp4_define
 }
 
 # set initial policies on IPv6

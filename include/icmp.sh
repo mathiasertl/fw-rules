@@ -56,6 +56,8 @@ icmp6() {
 }
 
 icmp() {
-	icmp4
-	icmp6
+	if [ "$ENABLE_ICMP" = 'n' ]; then
+	    icmp4
+	    icmp6
+    fi
 }
