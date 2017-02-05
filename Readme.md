@@ -102,7 +102,7 @@ multiple hosts. The first parameter is a list if IPs, the function will call
 iptables and/or ip6tables depending on the IPs. Example:
 
 ```
-rule_list "192.168.0.10 fd00::10 -A INPUT -p udp --sport 53 -j ACCEPT -s
+rule_list "192.168.0.10 fd00::10" -A INPUT -p udp --sport 53 -j ACCEPT -s
 ```
 
 ... will become:
