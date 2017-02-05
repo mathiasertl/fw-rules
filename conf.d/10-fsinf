@@ -1,2 +1,6 @@
 # set to 'y' to enable some infrastructure provided by FSINF:
 FSINF_INFRASTRUCTURE='y'
+
+# Automatically configure SSH
+ENABLE_SSHD_CONFIG='y'
+SSHD_INTERFACE='eth1'

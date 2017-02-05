@@ -1,8 +1,9 @@
 # make defaults settings:
 [ -z ${MUNIN_CONFIG_FILE} ] && MUNIN_CONFIG_FILE=/etc/munin/munin-node.conf
+[ -z ${SSHD_CONFIG_FILE} ] && SSHD_CONFIG_FILE=/etc/ssh/sshd_config
 
 if [ "$FSINF_INFRASTRUCTURE" = "y" ]; then
-	# doing munin configuration
+    # configure munin automatically
 	if [ -f ${MUNIN_CONFIG_FILE} ]; then
         if [ $(grep -c "^allow \^$ENCELADUS6\$$" $MUNIN_CONFIG_FILE) -eq 1 ]; then
     		rule6 -A INPUT -p tcp --dport 4949 -j ACCEPT -s $ENCELADUS6
